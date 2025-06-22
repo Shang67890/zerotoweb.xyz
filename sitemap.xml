@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <!-- 主站点地图 -->
+    <url>
+        <loc>https://zerotoweb.xyz/</loc>
+        <lastmod>2025-06-22</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link 
+            rel="alternate"
+            hreflang="en"
+            href="https://zerotoweb.xyz/?lang=en" />
+        <xhtml:link 
+            rel="alternate"
+            hreflang="zh"
+            href="https://zerotoweb.xyz/?lang=zh" />
+    </url>
+    
+    <!-- 核心路径页面 -->
+    <url>
+        <loc>https://zerotoweb.xyz/#welcome</loc>
+        <lastmod>2025-06-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://zerotoweb.xyz/#path-navigation</loc>
+        <lastmod>2025-06-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- 工具分类页面 -->
+    <url>
+        <loc>https://zerotoweb.xyz/#all-tools</loc>
+        <lastmod>2025-06-22</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://zerotoweb.xyz/#clarify-tools</loc>
+        <lastmod>2025-06-22</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://zerotoweb.xyz/#register-tools</loc>
+        <lastmod>2025-06-22</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://zerotoweb.xyz/#build-tools</loc>
+        <lastmod>2025-06-22</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://zerotoweb.xyz/#promote-tools</loc>
+        <lastmod>2025-06-22</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- 工具详情页面（动态生成）-->
+    <!-- 澄清需求工具 -->
+    <url>
+        <loc>https://zerotoweb.xyz/tools/xmind</loc>
+        <lastmod>2025-06-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://zerotoweb.xyz/tools/feishu</loc>
+        <lastmod>2025-06-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <!-- 此处添加其他工具页面... 共64个工具 -->
+    
+    <!-- 静态页面 -->
+    <url>
+        <loc>https://zerotoweb.xyz/contribute</loc>
+        <lastmod>2025-06-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+    <url>
+        <loc>https://zerotoweb.xyz/about</loc>
+        <lastmod>2025-06-22</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <!-- 多语言支持 -->
+    <url>
+        <loc>https://zerotoweb.xyz/?lang=en</loc>
+        <lastmod>2025-06-22</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link 
+            rel="alternate"
+            hreflang="en"
+            href="https://zerotoweb.xyz/?lang=en" />
+        <xhtml:link 
+            rel="alternate"
+            hreflang="zh"
+            href="https://zerotoweb.xyz/?lang=zh" />
+    </url>
+</urlset>
