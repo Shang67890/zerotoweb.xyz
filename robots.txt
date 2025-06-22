@@ -2,3 +2,7 @@ User-agent: *
 Allow: /
 
 Sitemap: https://zerotoweb.xyz/sitemap.xml
+
+Allow: /
+
+ads.txt
