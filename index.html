@@ -1,0 +1,2082 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO优化 -->
+    <title>ZeroToWeb | 出海建站工具导航 - Web to Map, Path to Site, AIWeb解决方案</title>
+    <meta name="description" content="一站式出海建站工具导航，提供从零到Web(ZeroToWeb)的完整路径。覆盖Web to Map, Path to Site, AIWeb等解决方案，帮助您轻松实现出海建站。">
+    <meta name="keywords" content="web to map, chuhai, zerotoweb, AIweb, path to site, 出海建站, 零代码建站, AI建站工具">
+    <link rel="canonical" href="https://zerotoweb.xyz">
+    
+    <!-- Schema.org标记 -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "ZeroToWeb出海建站工具导航",
+      "url": "https://zerotoweb.xyz",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://zerotoweb.xyz?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0a192f',
+                        secondary: '#64ffda',
+                        accent: '#d4af37',
+                        dark: '#081428',
+                        light: '#ccd6f6',
+                        stage1: '#4361ee',
+                        stage2: '#f72585',
+                        stage3: '#4cc9f0',
+                        stage4: '#2ec4b6'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * {
+            scroll-behavior: smooth;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --bg-dark: #0a192f;
+            --bg-darker: #081428;
+            --primary: #64ffda;
+            --secondary: #d4af37;
+            --accent: #4cc9f0;
+            --text-light: #ccd6f6;
+            --text-lighter: #e6f1ff;
+            --card-bg: rgba(17, 34, 64, 0.6);
+            --card-border: rgba(100, 255, 218, 0.1);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+        }
+        
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a192f 0%, #081428 100%);
+            color: #ccd6f6;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        
+        /* 粒子背景 */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+            padding: 0 20px;
+        }
+        
+        /* 语言切换按钮 */
+        .language-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+            background: rgba(17, 34, 64, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 5px;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .lang-btn {
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            background: transparent;
+            color: var(--text-light);
+        }
+        
+        .lang-btn.active {
+            background: var(--primary);
+            color: var(--bg-dark);
+        }
+        
+        /* 英雄页样式 */
+        #welcome {
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            z-index: 20;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .hero-title {
+            font-size: 3.2rem;
+            font-weight: 800;
+            background: linear-gradient(to right, var(--text-lighter), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+            margin-bottom: 40px;
+            position: relative;
+            padding: 0 20px;
+        }
+        
+        .hero-title::after {
+            content: "";
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 4px;
+        }
+        
+        .tip-box {
+            max-width: 800px;
+            margin: 60px auto 0;
+            padding: 35px 40px;
+            background: var(--card-bg);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--card-border);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .tip-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+        }
+        
+        .tip-box::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--primary);
+        }
+        
+        .tip-box p {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .tip-box p strong {
+            color: var(--primary);
+        }
+        
+        .tip-list {
+            margin-top: 25px;
+            padding-left: 25px;
+        }
+        
+        .tip-list li {
+            font-size: 1.2rem;
+            color: var(--text-lighter);
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 35px;
+        }
+        
+        .tip-list li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 20px;
+            height: 2px;
+            background: var(--primary);
+        }
+        
+        .tip-footer {
+            margin-top: 25px;
+            font-size: 1.1rem;
+            color: var(--secondary);
+            font-weight: 500;
+            text-align: center;
+            padding: 10px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 8px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .floating-elements {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .floating-element {
+            width: 140px;
+            height: 140px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: var(--card-bg);
+            border-radius: 20px;
+            border: 1px solid var(--card-border);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            transition: var(--transition);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+        
+        .floating-element:hover {
+            transform: translateY(-10px) scale(1.05);
+            background: rgba(17, 34, 64, 0.8);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .element-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            color: var(--bg-dark);
+        }
+        
+        .element-text {
+            font-size: 1rem;
+            color: var(--text-lighter);
+            font-weight: 500;
+            text-align: center;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            margin-top: 50px;
+            padding: 16px 45px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: var(--bg-dark);
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(100, 255, 218, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .cta-button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: width 0.5s ease;
+            z-index: -1;
+        }
+        
+        .cta-button:hover::before {
+            width: 100%;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(100, 255, 218, 0.5);
+        }
+        
+        /* 路径导航样式 */
+        .path-navigation {
+            padding: 80px 0 50px;
+        }
+        
+        .content {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        /* 左侧飞轮图样式 */
+        .flywheel-section {
+            flex: 1;
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--card-border);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .flywheel-section::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(100, 255, 218, 0.05) 0%, transparent 70%);
+            z-index: -1;
+        }
+        
+        .flywheel-title {
+            margin-bottom: 40px;
+            text-align: center;
+            width: 100%;
+        }
+        
+        .flywheel-title h2 {
+            font-size: 1.8rem;
+            color: var(--text-lighter);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .flywheel-title p {
+            color: var(--primary);
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .flywheel-container {
+            position: relative;
+            width: 320px;
+            height: 320px;
+            margin: 0 auto;
+        }
+        
+        .flywheel {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: rotate 25s linear infinite;
+        }
+        
+        .flywheel:hover {
+            animation-play-state: paused;
+        }
+        
+        .step {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 15px;
+            cursor: pointer;
+            transform-origin: center;
+            transition: var(--transition);
+            color: var(--bg-dark);
+            font-weight: 600;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            z-index: 2;
+        }
+        
+        .step:hover {
+            transform: scale(1.15) translateZ(10px);
+            z-index: 10;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+        
+        .step i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .step-1 {
+            background: linear-gradient(135deg, #4361ee, #3a0ca3);
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
+        
+        .step-2 {
+            background: linear-gradient(135deg, #f72585, #b5179e);
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%) translateX(50%);
+        }
+        
+        .step-3 {
+            background: linear-gradient(135deg, #4cc9f0, #4895ef);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%) translateY(50%);
+        }
+        
+        .step-4 {
+            background: linear-gradient(135deg, #2ec4b6, #1a936f);
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%) translateX(-50%);
+        }
+        
+        .center-circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--card-border);
+            box-shadow: 0 0 0 10px rgba(67, 97, 238, 0.1), 
+                        0 0 0 20px rgba(67, 97, 238, 0.05);
+            font-weight: bold;
+            color: var(--primary);
+            text-align: center;
+            line-height: 1.4;
+            padding: 10px;
+            font-size: 0.9rem;
+            z-index: 1;
+        }
+        
+        /* 右侧树形结构样式 */
+        .tree-section {
+            flex: 1.5;
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 35px 40px;
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--card-border);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .tree-section::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+            z-index: -1;
+        }
+        
+        .tree-title {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(100, 255, 218, 0.2);
+            position: relative;
+        }
+        
+        .tree-title h2 {
+            font-size: 1.8rem;
+            color: var(--text-lighter);
+            font-weight: 600;
+        }
+        
+        .tree-title::after {
+            content: "";
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 120px;
+            height: 2px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .path-tree {
+            list-style: none;
+            padding-left: 10px;
+        }
+        
+        .path-tree li {
+            position: relative;
+            padding: 18px 0 18px 35px;
+            margin: 8px 0;
+            border-left: 1px solid rgba(100, 255, 218, 0.15);
+            transition: var(--transition);
+        }
+        
+        .path-tree li:hover {
+            border-left: 1px solid var(--primary);
+        }
+        
+        .path-tree li::before {
+            content: "";
+            position: absolute;
+            top: 28px;
+            left: -1px;
+            width: 20px;
+            height: 1px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+        
+        .path-tree li:hover::before {
+            width: 30px;
+            background: var(--secondary);
+        }
+        
+        .path-tree li:last-child {
+            border-left: 1px solid transparent;
+        }
+        
+        .path-tree li::after {
+            content: "";
+            position: absolute;
+            top: 24px;
+            left: -6px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+        
+        .path-tree li:hover::after {
+            transform: scale(1.3);
+            background: var(--secondary);
+        }
+        
+        .main-step {
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: var(--text-lighter);
+            margin-top: 20px;
+            padding: 12px 20px;
+            background: rgba(17, 34, 64, 0.7);
+            border-radius: 12px;
+            display: inline-block;
+            border: 1px solid var(--card-border);
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .main-step::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(100, 255, 218, 0.1), transparent);
+            transition: width 0.6s ease;
+            z-index: -1;
+        }
+        
+        .main-step:hover::before {
+            width: 200%;
+        }
+        
+        .main-step:hover {
+            transform: translateX(5px);
+            border-color: var(--primary);
+        }
+        
+        .sub-step {
+            font-weight: 600;
+            margin: 15px 0 8px;
+            color: var(--text-lighter);
+            padding-left: 10px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .sub-step i {
+            margin-right: 12px;
+            color: var(--primary);
+            min-width: 24px;
+            font-size: 1.1rem;
+            margin-top: 3px;
+        }
+        
+        .sub-items {
+            list-style: none;
+            padding-left: 35px;
+            margin: 12px 0;
+        }
+        
+        .sub-items li {
+            padding: 10px 0 10px 25px;
+            font-size: 1rem;
+            position: relative;
+            color: var(--text-light);
+            border: none;
+        }
+        
+        .sub-items li::before {
+            content: "›";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-size: 1.4rem;
+            top: 6px;
+            width: auto;
+            height: auto;
+            background: transparent;
+        }
+        
+        .sub-items li::after {
+            display: none;
+        }
+        
+        .tool-badge {
+            display: inline-block;
+            background: rgba(100, 255, 218, 0.1);
+            color: var(--primary);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin: 5px 8px 5px 0;
+            font-weight: 500;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            transition: var(--transition);
+        }
+        
+        .tool-badge:hover {
+            transform: translateY(-3px);
+            background: rgba(100, 255, 218, 0.2);
+            box-shadow: 0 5px 15px rgba(100, 255, 218, 0.2);
+        }
+        
+        /* 工具卡片样式 */
+        .tool-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            background: rgba(17, 34, 64, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: rgba(100, 255, 218, 0.3);
+        }
+        
+        .tag-badge {
+            transition: all 0.2s ease;
+            background: rgba(100, 255, 218, 0.1);
+            color: #64ffda;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+        }
+        
+        .tag-badge:hover {
+            background: rgba(100, 255, 218, 0.2);
+            transform: scale(1.05);
+        }
+        
+        .stage-badge {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-btn.active {
+            color: #64ffda;
+            border-bottom: 2px solid #64ffda;
+        }
+        
+        .tool-link {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tool-link::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #64ffda;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+        
+        .tool-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        
+        .no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 40px;
+            font-size: 1.2rem;
+            color: #ccd6f6;
+            opacity: 0.7;
+        }
+        
+        .contribute-section {
+            background: linear-gradient(135deg, rgba(10, 25, 47, 0.8) 0%, rgba(8, 20, 40, 0.9) 100%);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .contribute-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 80% 20%, rgba(100, 255, 218, 0.1) 0%, transparent 50%);
+            z-index: -1;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        /* 管理员面板样式 */
+        .admin-panel {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: var(--bg-dark);
+            border: 1px solid var(--primary);
+            border-radius: 10px;
+            padding: 15px;
+            max-width: 400px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+            transform: translateY(calc(100% + 20px));
+            transition: transform 0.4s ease;
+        }
+        
+        .admin-panel.visible {
+            transform: translateY(0);
+        }
+        
+        .admin-toggle {
+            position: absolute;
+            top: -40px;
+            right: 10px;
+            background: var(--primary);
+            color: var(--bg-dark);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 15px rgba(100, 255, 218, 0.4);
+        }
+        
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(100, 255, 218, 0.3);
+            padding-bottom: 10px;
+        }
+        
+        .submissions-list {
+            max-height: 300px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+        
+        .submission-item {
+            background: rgba(17, 34, 64, 0.7);
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 10px;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+        }
+        
+        .submission-item h4 {
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .submission-meta {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            opacity: 0.7;
+            margin-top: 5px;
+        }
+        
+        .empty-submissions {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-light);
+            opacity: 0.6;
+        }
+        
+        .export-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background: rgba(100, 255, 218, 0.1);
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            border-radius: 6px;
+            text-align: center;
+            margin-top: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .export-btn:hover {
+            background: rgba(100, 255, 218, 0.2);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 1100px) {
+            .content {
+                flex-direction: column;
+            }
+            
+            .flywheel-section {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.4rem;
+            }
+            
+            .tip-box {
+                padding: 25px;
+            }
+            
+            .tip-box p {
+                font-size: 1.1rem;
+            }
+            
+            .tip-list li {
+                font-size: 1.05rem;
+                padding-left: 25px;
+            }
+            
+            .floating-element {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .flywheel-container {
+                width: 280px;
+                height: 280px;
+            }
+            
+            .step {
+                width: 100px;
+                height: 100px;
+                font-size: 0.9rem;
+            }
+            
+            .step i {
+                font-size: 1.5rem;
+            }
+            
+            .center-circle {
+                width: 80px;
+                height: 80px;
+                font-size: 0.8rem;
+            }
+            
+            .tree-section {
+                padding: 25px;
+            }
+            
+            .main-step {
+                font-size: 1.2rem;
+                padding: 10px 15px;
+            }
+            
+            header .flex-col {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            #search-container {
+                width: 100%;
+                margin-top: 15px;
+            }
+            
+            .nav-buttons {
+                flex-wrap: wrap;
+                margin-top: 15px;
+            }
+            
+            .nav-buttons li {
+                margin-bottom: 5px;
+            }
+            
+            .admin-panel {
+                max-width: 320px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .tip-box {
+                padding: 20px 15px;
+            }
+            
+            .tip-list li {
+                font-size: 1rem;
+                padding-left: 20px;
+            }
+            
+            .floating-element {
+                width: 100px;
+                height: 100px;
+                padding: 15px;
+            }
+            
+            .element-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+            
+            .element-text {
+                font-size: 0.9rem;
+            }
+            
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .logo {
+                padding: 10px 20px;
+            }
+            
+            .flywheel-container {
+                width: 240px;
+                height: 240px;
+            }
+            
+            .step {
+                width: 85px;
+                height: 85px;
+                font-size: 0.8rem;
+            }
+            
+            .admin-panel {
+                max-width: 280px;
+                right: 10px;
+            }
+        }
+        
+        /* 动画 */
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .highlight {
+            background-color: rgba(255, 217, 102, 0.15);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 500;
+            color: var(--secondary);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        /* SEO优化区域 */
+        .seo-section {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 40px 0;
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--card-border);
+        }
+        
+        .seo-section h2 {
+            font-size: 1.8rem;
+            color: var(--text-lighter);
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .seo-section h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: var(--primary);
+        }
+        
+        .seo-faq {
+            margin-top: 25px;
+        }
+        
+        .seo-faq-item {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+        }
+        
+        .seo-faq-item h3 {
+            font-size: 1.3rem;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body x-data="{ activeStage: 'all', showSuccess: false }" class="min-h-screen">
+    <!-- 粒子背景容器 -->
+    <div id="particles-js"></div>
+    
+    <!-- 语言切换按钮 -->
+    <div class="language-switcher">
+        <button class="lang-btn active" id="lang-en">EN</button>
+        <button class="lang-btn" id="lang-zh">中文</button>
+    </div>
+    
+    <!-- 导航栏 -->
+    <header class="sticky top-0 z-50 bg-primary bg-opacity-90 backdrop-blur-sm border-b border-gray-800">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center">
+                    <div class="bg-secondary w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                        <i class="fas fa-ship text-primary text-xl"></i>
+                    </div>
+                    <h1 class="text-2xl font-bold bg-gradient-to-r from-light to-secondary bg-clip-text text-transparent">
+                        ZeroToWeb出海工具导航
+                    </h1>
+                </div>
+                
+                <div id="search-container" class="w-full md:w-1/3 mt-4 md:mt-0">
+                    <div class="relative">
+                        <input 
+                            id="search-tools" 
+                            type="text" 
+                            placeholder="搜索工具名称、标签或描述..." 
+                            class="search-box w-full py-3 px-4 pr-10 rounded-lg bg-dark border border-gray-700 text-light focus:outline-none focus:border-secondary transition"
+                        >
+                        <i class="fas fa-search absolute right-3 top-3.5 text-gray-500"></i>
+                    </div>
+                </div>
+                
+                <nav class="mt-4 md:mt-0">
+                    <ul class="nav-buttons flex space-x-4">
+                        <li>
+                            <button 
+                                @click="scrollToSection('welcome')" 
+                                class="px-3 py-1 nav-btn"
+                            >
+                                初心
+                            </button>
+                        </li>
+                        <li>
+                            <button 
+                                @click="scrollToSection('path-navigation')" 
+                                class="px-3 py-1 nav-btn"
+                            >
+                                路径导航
+                            </button>
+                        </li>
+                        <li>
+                            <button 
+                                @click="activeStage = 'all'; scrollToSection('all-tools')" 
+                                :class="{ 'active': activeStage === 'all' }" 
+                                class="px-3 py-1 nav-btn"
+                            >
+                                全部工具
+                            </button>
+                        </li>
+                        <li>
+                            <button 
+                                @click="activeStage = '澄清需求'; scrollToSection('clarify-tools')" 
+                                :class="{ 'active': activeStage === '澄清需求' }" 
+                                class="px-3 py-1 nav-btn"
+                            >
+                                澄清需求
+                            </button>
+                        </li>
+                        <li>
+                            <button 
+                                @click="activeStage = '注册账号'; scrollToSection('register-tools')" 
+                                :class="{ 'active': activeStage === '注册账号' }" 
+                                class="px-3 py-1 nav-btn"
+                            >
+                                注册账号
+                            </button>
+                        </li>
+                        <li>
+                            <button 
+                                @click="activeStage = '搭建站点'; scrollToSection('build-tools')" 
+                                :class="{ 'active': activeStage === '搭建站点' }" 
+                                class="px-3 py-1 nav-btn"
+                            >
+                                搭建站点
+                            </button>
+                        </li>
+                        <li>
+                            <button 
+                                @click="activeStage = '推广运营'; scrollToSection('promote-tools')" 
+                                :class="{ 'active': activeStage === '推广运营' }" 
+                                class="px-3 py-1 nav-btn"
+                            >
+                                推广运营
+                            </button>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- 英雄页 -->
+    <section id="welcome">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">ZeroToWeb出海：从零到Web的完整路径导航</h1>
+                
+                <!-- 内部提醒贴士（强调初心） -->
+                <div class="tip-box">
+                    <p>
+                        <i class="fas fa-lightbulb" style="color: var(--secondary);"></i> <strong>专业小帖士：</strong> 
+                        做网页，搞开发，从来不是为了代码炫技，也不应沉迷追求视觉美学。
+                        <br>
+                        而是从一开始就认真思考：
+                    </p>
+                    
+                    <ul class="tip-list">
+                        <li>什么人</li>
+                        <li>在什么场景下</li>
+                        <li>愿意花多少钱</li>
+                        <li>解决什么问题</li>
+                    </ul>
+                    
+                    <div class="tip-footer">
+                        如果这四个问题还没想清楚，就不要急着动手写代码。
+                    </div>
+                </div>
+                
+                <div class="floating-elements">
+                    <div class="floating-element">
+                        <div class="element-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="element-text">明确受众</div>
+                    </div>
+                    <div class="floating-element">
+                        <div class="element-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <div class="element-text">清晰目标</div>
+                    </div>
+                    <div class="floating-element">
+                        <div class="element-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <div class="element-text">高效工具</div>
+                    </div>
+                    <div class="floating-element">
+                        <div class="element-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <div class="element-text">快速实现</div>
+                    </div>
+                </div>
+                
+                <a href="#path-navigation" class="cta-button">
+                    <i class="fas fa-map-signs"></i> 查看出海路径
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- SEO优化内容区域 -->
+    <section class="seo-section container">
+        <h2>ZeroToWeb出海建站解决方案</h2>
+        <p>ZeroToWeb提供从零开始到完整网站(Web)的全套解决方案，专注于出海建站(ChuHai)领域。我们的工具导航为您规划清晰的<strong>Path to Site</strong>，无论是<strong>Web to Map</strong>应用还是<strong>AIWeb</strong>解决方案，都能找到合适的工具。</p>
+        
+        <div class="seo-faq">
+            <h3>常见问题解答</h3>
+            
+            <div class="seo-faq-item">
+                <h3>什么是Web to Map？</h3>
+                <p>Web to Map是指将网页内容与地图服务相结合的解决方案，常用于位置服务、导航和地理信息展示。在出海建站中，Web to Map工具可以帮助您快速创建包含地图功能的多语言网站。</p>
+            </div>
+            
+            <div class="seo-faq-item">
+                <h3>ZeroToWeb如何帮助实现Path to Site？</h3>
+                <p>ZeroToWeb提供从域名注册到网站上线的完整路径(Path to Site)导航。我们的工具库覆盖了建站全流程：需求澄清、账号注册、站点搭建和推广运营四个阶段，让出海建站变得简单高效。</p>
+            </div>
+            
+            <div class="seo-faq-item">
+                <h3>AIWeb解决方案有哪些优势？</h3>
+                <p>AIWeb解决方案利用人工智能技术，帮助您快速生成网站内容、优化用户体验并实现智能交互。在出海建站中，AIWeb工具可以自动翻译内容、生成多语言界面，并优化SEO表现。</p>
+            </div>
+            
+            <div class="seo-faq-item">
+                <h3>如何开始使用ZeroToWeb出海建站？</h3>
+                <p>只需按照我们提供的四个阶段：澄清需求、注册账号、搭建站点、推广运营，选择适合的工具，即可快速完成从零到Web(ZeroToWeb)的建站过程。我们的工具导航覆盖了每个阶段所需的专业工具。</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 路径导航 -->
+    <section id="path-navigation" class="path-navigation">
+        <div class="container">
+            <div class="content">
+                <!-- 左侧飞轮图 -->
+                <section class="flywheel-section">
+                    <div class="flywheel-title">
+                        <h2>Web出海四步飞轮</h2>
+                        <p>点击步骤查看详细路径</p>
+                    </div>
+                    
+                    <div class="flywheel-container">
+                        <div class="flywheel">
+                            <div class="step step-1">
+                                <i class="fas fa-search"></i>
+                                <span>澄清需求</span>
+                            </div>
+                            <div class="step step-2">
+                                <i class="fas fa-user-plus"></i>
+                                <span>注册账号</span>
+                            </div>
+                            <div class="step step-3">
+                                <i class="fas fa-laptop-code"></i>
+                                <span>搭建站点</span>
+                            </div>
+                            <div class="step step-4">
+                                <i class="fas fa-chart-line"></i>
+                                <span>推广运营</span>
+                            </div>
+                        </div>
+                        <div class="center-circle">全球化<br>成功之路</div>
+                    </div>
+                </section>
+                
+                <!-- 右侧树形结构 -->
+                <section class="tree-section">
+                    <div class="tree-title">
+                        <h2>专业出海路径导航</h2>
+                    </div>
+                    
+                    <ul class="path-tree">
+                        <li>
+                            <div class="main-step">1. 澄清需求</div>
+                            <div class="sub-step"><i class="fas fa-bullseye"></i>梳理目标：我做这个站是为了什么？</div>
+                            <div class="sub-step"><i class="fas fa-users"></i>明确受众：谁会访问这个站？</div>
+                            <div class="sub-step"><i class="fas fa-sitemap"></i>规划结构：首页展示什么、有哪些栏目？</div>
+                            
+                            <div class="sub-step"><i class="fas fa-tools"></i>工具支持：</div>
+                            <ul class="sub-items">
+                                <li>思维导图：<span class="tool-badge">XMind</span> <span class="tool-badge">飞书脑图</span></li>
+                                <li>协作记录：<span class="tool-badge">Notion</span> <span class="tool-badge">腾讯文档</span></li>
+                                <li>AI辅助：<span class="tool-badge">GPT</span> <span class="tool-badge">Claude</span> 辅助结构构思</li>
+                            </ul>
+                            
+                            <div class="sub-step"><i class="fas fa-file-alt"></i>产出结果：一份明确的网站结构草图或需求文档</div>
+                        </li>
+                        
+                        <li>
+                            <div class="main-step">2. 注册账号</div>
+                            <div class="sub-step"><i class="fas fa-envelope"></i>邮箱注册：<span class="tool-badge">Gmail</span> <span class="tool-badge">Outlook</span>（稳定 + 可信）</div>
+                            <div class="sub-step"><i class="fas fa-globe"></i>域名注册：<span class="tool-badge">Spaceship</span> <span class="tool-badge">Namecheap</span>（配合 DNS 解析）</div>
+                            <div class="sub-step"><i class="fas fa-network-wired"></i>网络环境：科学上网服务 / <span class="tool-badge">Cloudflare WARP</span></div>
+                            <div class="sub-step"><i class="fas fa-credit-card"></i>支付工具：<span class="tool-badge">Wise</span> <span class="tool-badge">PayPal</span> / 虚拟卡（如 Vcard、万里汇）</div>
+                            
+                            <div class="sub-step"><i class="fas fa-users-cog"></i>协作平台账号：</div>
+                            <ul class="sub-items">
+                                <li><span class="tool-badge">GitHub</span> <span class="tool-badge">飞书</span> <span class="tool-badge">Notion</span> <span class="tool-badge">ChatGPT</span></li>
+                            </ul>
+                            
+                            <div class="sub-step"><i class="fas fa-exclamation-circle"></i>注意事项：域名后缀选择建议、邮箱稳定性、绑定手机号要求</div>
+                        </li>
+                        
+                        <li>
+                            <div class="main-step">3. 搭建站点</div>
+                            <div class="sub-step"><i class="fas fa-cogs"></i>决定建站方式：</div>
+                            <ul class="sub-items">
+                                <li>零代码：<span class="tool-badge">Bolt.new</span> <span class="tool-badge">Trick.so</span> <span class="tool-badge">Heyboss</span>（快速建成）</li>
+                                <li>轻前端：<span class="tool-badge">Astro</span> <span class="tool-badge">NextJS</span> + <span class="tool-badge">Tailwind</span>（GPT/Cursor 辅助生成）</li>
+                                <li>CMS：<span class="tool-badge">WordPress</span> + 模板（适合内容多的站）</li>
+                            </ul>
+                            
+                            <div class="sub-step"><i class="fas fa-laptop"></i>本地开发准备：</div>
+                            <ul class="sub-items">
+                                <li>安装：<span class="tool-badge">Node.js</span> <span class="tool-badge">Git</span> <span class="tool-badge">VS Code</span></li>
+                                <li><span class="tool-badge">GitHub</span> 托管 + <span class="tool-badge">Vercel</span> / <span class="tool-badge">Cloudflare Pages</span> 发布</li>
+                            </ul>
+                            
+                            <div class="sub-step"><i class="fas fa-robot"></i>AI辅助写站：<span class="tool-badge">Cursor</span> <span class="tool-badge">GitHub Copilot</span> <span class="tool-badge">DeepSeek</span></div>
+                            
+                            <div class="sub-step"><i class="fas fa-clipboard-check"></i>上线检查清单：</div>
+                            <ul class="sub-items">
+                                <li>移动端适配 / 打开速度 / 安全性检测（<span class="tool-badge">WAF</span>）</li>
+                            </ul>
+                        </li>
+                        
+                        <li>
+                            <div class="main-step">4. 推广运营</div>
+                            <div class="sub-step"><i class="fas fa-search-plus"></i>搜索引擎提交：</div>
+                            <ul class="sub-items">
+                                <li><span class="tool-badge">Google Search Console</span></li>
+                                <li>百度站长平台（若中文为主）</li>
+                            </ul>
+                            
+                            <div class="sub-step"><i class="fas fa-chart-bar"></i>网站分析：</div>
+                            <ul class="sub-items">
+                                <li><span class="tool-badge">Google Analytics GA4</span></li>
+                                <li>百度统计 / 热力图工具（如 <span class="tool-badge">Clarity</span>）</li>
+                            </ul>
+                            
+                            <div class="sub-step"><i class="fas fa-hashtag"></i>SEO与内容运营：</div>
+                            <ul class="sub-items">
+                                <li>关键词挖掘：<span class="tool-badge">5118</span> <span class="tool-badge">Ubersuggest</span> <span class="tool-badge">Semrush</span></li>
+                                <li>内容策略：长尾词分发 / 标签页搭建</li>
+                            </ul>
+                            
+                            <div class="sub-step"><i class="fas fa-share-alt"></i>分发平台推广：</div>
+                            <ul class="sub-items">
+                                <li>小红书 / 知乎 / 抖音 / B 站</li>
+                                <li>Reddit / Quora / TikTok / YouTube</li>
+                            </ul>
+                            
+                            <div class="sub-step"><i class="fas fa-sync-alt"></i>后续维护：</div>
+                            <ul class="sub-items">
+                                <li>用户反馈：表单收集 / 数据分析</li>
+                                <li>工具更新：定期检查失效链接、替换新工具</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主内容区 -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- 工具统计信息 -->
+        <div class="mb-8 p-6 rounded-xl bg-dark border border-gray-700">
+            <div class="flex flex-wrap justify-between items-center">
+                <div>
+                    <h2 class="text-xl font-bold mb-2">出海工具库</h2>
+                    <p class="text-light text-opacity-80">精选出海建站全流程所需工具，助您高效完成项目</p>
+                </div>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <div class="text-center px-4 py-2 rounded-lg bg-primary">
+                        <div class="text-2xl font-bold text-secondary">64</div>
+                        <div class="text-sm">总工具数</div>
+                    </div>
+                    <div class="text-center px-4 py-2 rounded-lg bg-primary">
+                        <div class="text-2xl font-bold text-accent">4</div>
+                        <div class="text-sm">阶段分类</div>
+                    </div>
+                    <div class="text-center px-4 py-2 rounded-lg bg-primary">
+                        <div class="text-2xl font-bold text-green-400">18</div>
+                        <div class="text-sm">标签分类</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 工具卡片网格 -->
+        <div id="tool-list">
+            <!-- 搜索无结果提示 -->
+            <div class="no-results hidden" id="no-results">
+                <i class="fas fa-search fa-2x mb-4"></i>
+                <h3 class="text-xl font-bold">未找到匹配的工具</h3>
+                <p class="mt-2">请尝试其他关键词或筛选条件</p>
+            </div>
+            
+            <!-- 全部工具 -->
+            <div class="mb-4">
+                <h2 id="all-tools" class="text-3xl font-bold mb-8">全部工具</h2>
+            </div>
+            
+            <!-- 澄清需求 -->
+            <div class="stage-section mb-16">
+                <div class="flex items-center mb-6">
+                    <h2 id="clarify-tools" class="text-2xl font-bold mr-4">澄清需求</h2>
+                    <span class="stage-badge px-3 py-1 bg-stage1 bg-opacity-20 text-stage1 rounded-full text-sm font-medium">
+                        16 个工具
+                    </span>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="clarify-tools-container">
+                    <!-- 工具卡片将通过JavaScript动态生成 -->
+                </div>
+            </div>
+            
+            <!-- 注册账号 -->
+            <div class="stage-section mb-16">
+                <div class="flex items-center mb-6">
+                    <h2 id="register-tools" class="text-2xl font-bold mr-4">注册账号</h2>
+                    <span class="stage-badge px-3 py-1 bg-stage2 bg-opacity-20 text-stage2 rounded-full text-sm font-medium">
+                        15 个工具
+                    </span>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="register-tools-container">
+                    <!-- 工具卡片将通过JavaScript动态生成 -->
+                </div>
+            </div>
+            
+            <!-- 搭建站点 -->
+            <div class="stage-section mb-16">
+                <div class="flex items-center mb-6">
+                    <h2 id="build-tools" class="text-2xl font-bold mr-4">搭建站点</h2>
+                    <span class="stage-badge px-3 py-1 bg-stage3 bg-opacity-20 text-stage3 rounded-full text-sm font-medium">
+                        19 个工具
+                    </span>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="build-tools-container">
+                    <!-- 工具卡片将通过JavaScript动态生成 -->
+                </div>
+            </div>
+            
+            <!-- 推广运营 -->
+            <div class="stage-section mb-16">
+                <div class="flex items-center mb-6">
+                    <h2 id="promote-tools" class="text-2xl font-bold mr-4">推广运营</h2>
+                    <span class="stage-badge px-3 py-1 bg-stage4 bg-opacity-20 text-stage4 rounded-full text-sm font-medium">
+                        14 个工具
+                    </span>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="promote-tools-container">
+                    <!-- 工具卡片将通过JavaScript动态生成 -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- 共创工具导航部分 -->
+        <div id="contribute" class="contribute-section my-16 p-8 md:p-12">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+                <div class="md:w-1/2 text-center md:text-left">
+                    <div class="inline-block px-4 py-2 bg-secondary bg-opacity-20 text-secondary rounded-full mb-4">
+                        <i class="fas fa-hands-helping mr-2"></i>共同创建
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        没找到你需要的工具？
+                        <br>
+                        <span class="text-secondary">欢迎提交推荐！</span>
+                    </h2>
+                    <p class="text-light text-opacity-80 mb-6 text-lg">
+                        我们正在构建一个由社区驱动的出海工具导航站。您的推荐将帮助成千上万的出海开发者找到更好的工具。
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-3 mb-8">
+                        <div class="floating">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center">
+                                <span class="font-bold">A</span>
+                            </div>
+                        </div>
+                        <div class="floating" style="animation-delay: 1s;">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-green-500 to-teal-500 flex items-center justify-center">
+                                <span class="font-bold">B</span>
+                            </div>
+                        </div>
+                        <div class="floating" style="animation-delay: 2s;">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-yellow-500 to-orange-500 flex items-center justify-center">
+                                <span class="font-bold">C</span>
+                            </div>
+                        </div>
+                        <div class="floating" style="animation-delay: 3s;">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-pink-500 to-red-500 flex items-center justify-center">
+                                <span class="font-bold">D</span>
+                            </div>
+                        </div>
+                        <div class="floating" style="animation-delay: 4s;">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-indigo-600 flex items-center justify-center">
+                                <span class="font-bold">+32</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center text-light text-opacity-70">
+                        <i class="fas fa-lightbulb text-yellow-400 mr-2"></i>
+                        <p>推荐被采纳的工具，您的名字将出现在贡献者列表中！</p>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2 w-full max-w-md">
+                    <div x-show="!showSuccess" class="bg-dark bg-opacity-50 rounded-xl p-6 border border-gray-700">
+                        <h3 class="text-xl font-bold mb-6 text-center">推荐新工具</h3>
+                        <form id="tool-recommendation-form">
+                            <div class="mb-4">
+                                <label class="block text-light text-opacity-80 mb-2">工具名称</label>
+                                <input 
+                                    type="text" 
+                                    placeholder="例如：Figma" 
+                                    class="w-full py-3 px-4 rounded-lg bg-dark border border-gray-700 text-light focus:outline-none focus:border-secondary"
+                                    required
+                                >
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-light text-opacity-80 mb-2">工具网址</label>
+                                <input 
+                                    type="url" 
+                                    placeholder="https://" 
+                                    class="w-full py-3 px-4 rounded-lg bg-dark border border-gray-700 text-light focus:outline-none focus:border-secondary"
+                                    required
+                                >
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-light text-opacity-80 mb-2">适用阶段</label>
+                                <select class="w-full py-3 px-4 rounded-lg bg-dark border border-gray-700 text-light focus:outline-none focus:border-secondary">
+                                    <option>澄清需求</option>
+                                    <option>注册账号</option>
+                                    <option>搭建站点</option>
+                                    <option>推广运营</option>
+                                    <option>其他</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label class="block text-light text-opacity-80 mb-2">推荐理由</label>
+                                <textarea 
+                                    placeholder="这个工具有什么特别之处？为什么值得推荐？" 
+                                    class="w-full py-3 px-4 rounded-lg bg-dark border border-gray-700 text-light focus:outline-none focus:border-secondary"
+                                    rows="3"
+                                ></textarea>
+                            </div>
+                            
+                            <button 
+                                type="submit" 
+                                class="w-full py-3 px-6 rounded-lg bg-gradient-to-r from-secondary to-teal-400 text-primary font-bold flex items-center justify-center hover:opacity-90 transition"
+                            >
+                                <i class="fas fa-paper-plane mr-2"></i> 提交推荐
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <div x-show="showSuccess" x-cloak class="text-center py-10">
+                        <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-check text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">感谢您的推荐！</h3>
+                        <p class="text-light text-opacity-80 mb-6">
+                            我们已收到您的工具推荐。审核通过后，您的推荐将出现在导航站中。
+                        </p>
+                        <button 
+                            @click="showSuccess = false" 
+                            class="px-6 py-3 rounded-lg border border-secondary text-secondary hover:bg-secondary hover:bg-opacity-10 transition"
+                        >
+                            推荐另一个工具
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- 页脚 -->
+    <footer class="bg-dark border-t border-gray-800 py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <div class="flex items-center">
+                        <div class="bg-secondary w-8 h-8 rounded-full flex items-center justify-center mr-2">
+                            <i class="fas fa-ship text-primary"></i>
+                        </div>
+                        <span class="text-xl font-bold">ZeroToWeb出海</span>
+                    </div>
+                    <p class="mt-2 text-light text-opacity-70 text-sm">
+                        一站式出海工具导航，助力全球业务拓展
+                    </p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="#" class="text-light text-opacity-80 hover:text-secondary">
+                        <i class="fab fa-github text-lg"></i>
+                    </a>
+                    <a href="#" class="text-light text-opacity-80 hover:text-secondary">
+                        <i class="fab fa-twitter text-lg"></i>
+                    </a>
+                    <a href="#" class="text-light text-opacity-80 hover:text-secondary">
+                        <i class="fab fa-discord text-lg"></i>
+                    </a>
+                    <a href="#" class="text-light text-opacity-80 hover:text-secondary">
+                        <i class="fab fa-linkedin text-lg"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-8 border-t border-gray-800 text-center text-light text-opacity-60 text-sm">
+                © 2025 ZeroToWeb出海工具导航. 保留所有权利. 码云智造团队设计.
+            </div>
+        </div>
+    </footer>
+    
+    <!-- 管理员面板 -->
+    <div class="admin-panel" id="admin-panel">
+        <div class="admin-toggle" id="admin-toggle">
+            <i class="fas fa-tools"></i>
+        </div>
+        
+        <div class="admin-header">
+            <h3>工具推荐管理</h3>
+            <button class="text-secondary text-sm" id="clear-submissions">
+                <i class="fas fa-trash mr-1"></i>清空记录
+            </button>
+        </div>
+        
+        <div class="submissions-list" id="submissions-list">
+            <!-- 提交记录将在这里显示 -->
+            <div class="empty-submissions">
+                <i class="fas fa-inbox fa-2x mb-3"></i>
+                <p>暂无提交记录</p>
+            </div>
+        </div>
+        
+        <div class="export-btn" id="export-btn">
+            <i class="fas fa-download mr-2"></i>导出为JSON文件
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // 粒子背景配置
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 70, density: { enable: true, value_area: 800 } },
+                color: { value: "#64ffda" },
+                shape: { type: "circle" },
+                opacity: { value: 0.2, random: true },
+                size: { value: 3, random: true },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#4cc9f0",
+                    opacity: 0.1,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 1,
+                    direction: "none",
+                    random: true,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: { enable: true, mode: "grab" },
+                    onclick: { enable: true, mode: "push" },
+                    resize: true
+                }
+            },
+            retina_detect: true
+        });
+        
+        // 添加飞轮点击事件
+        document.querySelectorAll('.step').forEach(step => {
+            step.addEventListener('click', function() {
+                const stepNum = this.classList[1].split('-')[1];
+                const mainSteps = document.querySelectorAll('.main-step');
+                
+                // 移除之前的高亮
+                mainSteps.forEach(step => step.classList.remove('highlight'));
+                
+                // 添加新高亮
+                if(mainSteps[stepNum-1]) {
+                    mainSteps[stepNum-1].classList.add('highlight');
+                    
+                    // 滚动到对应位置
+                    mainSteps[stepNum-1].scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'center'
+                    });
+                }
+            });
+        });
+        
+        // 完整的工具数据（64个工具）
+        const toolsData = [
+            // 澄清需求工具 (16个)
+            {id:0,name:"XMind",url:"https://xmind.app/",stage:"澄清需求",tags:["思维导图","结构规划"],description:"小白用来梳理网站结构最直观，支持中文界面，导出图清晰可读",tutorial:"https://www.xmind.net/tutorial/"},
+            {id:1,name:"飞书脑图",url:"https://www.feishu.cn/",stage:"澄清需求",tags:["思维导图","团队协作"],description:"适合多人在线同步编辑网站结构，还能插入任务列表",tutorial:"https://www.feishu.cn/hc/zh-CN/articles/360048259813"},
+            {id:3,name:"腾讯文档",url:"https://docs.qq.com/",stage:"澄清需求",tags:["多人协作","云端编辑"],description:"小白易上手，适合做初期内容整理和需求记录",tutorial:"https://docs.qq.com/doc/DS2VGZFR3cU9FT0tw"},
+            {id:4,name:"Claude",url:"https://www.anthropic.com/index/claude",stage:"澄清需求",tags:["AI辅助梳理","文案生成"],description:"让AI帮你梳理思路，比如“我想做个工具导航页怎么规划？”",tutorial:"https://docs.anthropic.com/claude"},
+            {id:5,name:"ChatGPT",url:"https://chat.openai.com/",stage:"澄清需求",tags:["AI对话","问答辅助"],description:"快速问：这一步我该用什么工具？一步步引导小白往下走",tutorial:"https://help.openai.com/en/articles/6825453-chatgpt-release-notes"},
+            {id:6,name:"Google Trends",url:"https://trends.google.com/",stage:"澄清需求",tags:["趋势分析","关键词热度判断"],description:"查看关键词热度是否上升，帮助小白判断项目选题是否有前景",tutorial:"https://support.google.com/trends"},
+            {id:7,name:"Ahrefs",url:"https://ahrefs.com/keyword-generator",stage:"澄清需求",tags:["关键词难度","SEO分析"],description:"输入关键词可看到相关搜索词、难度值，有助于小白判断能否做排名",tutorial:"https://ahrefs.com/blog/keyword-generator/"},
+            {id:8,name:"Similarweb",url:"https://www.similarweb.com/",stage:"澄清需求",tags:["竞品分析","网站流量查询"],description:"输入竞品网站即可查看访问量来源、受众国家、SEO排名等信息",tutorial:"https://support.similarweb.com/"},
+            {id:9,name:"豆包",url:"https://www.doubao.com/",stage:"澄清需求",tags:["中文AI辅助","思路梳理"],description:"中文环境友好，适合初学者梳理思路、分析步骤、生成建议方案",tutorial:"https://www.doubao.com/help"},
+            {id:10,name:"DeepSeek Chat",url:"https://deepseek.com/",stage:"澄清需求",tags:["AI助手","技术问答"],description:"支持复杂问题推理，适合问“我该怎么建站、买域名要注意啥”等",tutorial:"https://github.com/deepseek-ai"},
+            {id:11,name:"Gemini",url:"https://gemini.google.com/",stage:"澄清需求",tags:["AI对话","多模态搜索"],description:"输入问题后返回结构化回答，还能看网页、图片等",tutorial:"https://support.google.com/gemini/"},
+            {id:12,name:"Semrush",url:"https://www.semrush.com/tools/keyword-magic/",stage:"澄清需求",tags:["关键词趋势分析","项目评估"],description:"输入一个关键词即可查看相关搜索词、趋势、搜索量、竞争度",tutorial:"https://www.semrush.com/kb/40-keyword-magic-tool"},
+            {id:13,name:"巨量算数",url:"https://trendinsight.oceanengine.com/",stage:"澄清需求",tags:["短视频热点","内容趋势分析"],description:"抖音官方数据平台，适合分析热门话题、关键词热度、内容爆款规律",tutorial:"https://school.oceanengine.com/"},
+            {id:14,name:"百度指数",url:"https://index.baidu.com/",stage:"澄清需求",tags:["中文关键词趋势","话题热度"],description:"适合做中文站、小红书/知乎内容选题前判断热度",tutorial:"https://help.baidu.com/question?prod_en=index"},
+            
+            // 注册账号工具 (15个)
+            {id:15,name:"Gmail",url:"https://mail.google.com/",stage:"注册账号",tags:["注册邮箱","海外服务入口"],description:"用于注册 PayPal、Namecheap 等几乎所有海外平台，建议第一时间申请",tutorial:"https://support.google.com/mail/answer/56256"},
+            {id:16,name:"Outlook",url:"https://outlook.live.com/",stage:"注册账号",tags:["注册邮箱","微软服务"],description:"可替代 Gmail 使用，用于注册 PayPal、Microsoft 服务等",tutorial:"https://support.microsoft.com/zh-cn/office/outlook"},
+            {id:17,name:"JustMySocks",url:"https://justmysocks.net/",stage:"注册账号",tags:["科学上网","解锁访问限制"],description:"注册海外平台前需要访问被墙网站，如 PayPal、GitHub 等",tutorial:"https://justmysocks.net/members/knowledgebase"},
+            {id:18,name:"Wise",url:"https://wise.com/",stage:"注册账号",tags:["虚拟卡","支付绑定"],description:"可绑定 PayPal，用于美区消费，支持人民币转美元",tutorial:"https://wise.com/help"},
+            {id:19,name:"Payoneer",url:"https://www.payoneer.com/",stage:"注册账号",tags:["虚拟卡","出口收款"],description:"适合亚马逊或独立站收款，可接收多种外币",tutorial:"https://www.payoneer.com/support/"},
+            {id:20,name:"Namecheap",url:"https://www.namecheap.com/",stage:"注册账号",tags:["域名注册","SSL 购买"],description:"界面友好，支持虚拟卡/支付宝购买，适合小白建站",tutorial:"https://www.namecheap.com/support/"},
+            {id:21,name:"Spaceship",url:"https://www.spaceship.com/",stage:"注册账号",tags:["域名注册","Cloudflare绑定"],description:"支持一键接入 Cloudflare DNS，适合部署静态站",tutorial:"https://help.spaceship.com/"},
+            {id:25,name:"Wayback Machine",url:"https://archive.org/web/",stage:"注册账号",tags:["域名历史查询","黑历史排查"],description:"输入域名可查看历史页面，避免购买有不良记录的域名",tutorial:"https://help.archive.org/help/using-the-wayback-machine/"},
+            {id:26,name:"Whois Lookup",url:"https://who.is/",stage:"注册账号",tags:["域名信息查询","到期时间"],description:"查询域名是否被注册、注册人信息、注册商、到期时间等",tutorial:"https://who.is/whois-help"},
+            {id:27,name:"Freenom",url:"https://www.freenom.com/",stage:"注册账号",tags:["免费域名注册","新手测试"],description:"提供 .tk/.ml/.ga/.cf 等免费域名，适合测试或早期练手",tutorial:"https://my.freenom.com/knowledgebase.php"},
+            {id:28,name:"OpenAI",url:"https://platform.openai.com/",stage:"注册账号",tags:["AI工具接入","GPT开发"],description:"注册获取 API Key，用于后期内容生成、导航站 AI 辅助等功能",tutorial:"https://platform.openai.com/docs"},
+            {id:29,name:"Notion",url:"https://www.notion.so/",stage:"注册账号",tags:["内容记录","项目协作"],description:"可用作内容收集、页面规划、任务管理，适合搭配飞书使用",tutorial:"https://www.notion.so/help"},
+            
+            // 搭建站点工具 (19个)
+            {id:30,name:"Vercel",url:"https://vercel.com/",stage:"搭建站点",tags:["静态网站部署","GitHub联动"],description:"一键部署静态网页，适合新手，支持绑定域名与自动CI",tutorial:"https://vercel.com/docs"},
+            {id:31,name:"Cloudflare Pages",url:"https://pages.cloudflare.com/",stage:"搭建站点",tags:["免费CDN部署","自带HTTPS"],description:"适合部署无后端的纯静态网站，免费稳定且支持自定义域名",tutorial:"https://developers.cloudflare.com/pages/"},
+            {id:32,name:"Netlify",url:"https://www.netlify.com/",stage:"搭建站点",tags:["静态网站托管","表单处理"],description:"适合 HTML / React 网站托管，免费额度对新手友好",tutorial:"https://docs.netlify.com/"},
+            {id:33,name:"GitHub",url:"https://github.com/",stage:"搭建站点",tags:["代码托管","自动部署"],description:"将代码同步至 GitHub，可联动 Vercel / Netlify 实现自动部署",tutorial:"https://docs.github.com/zh"},
+            {id:34,name:"Cursor",url:"https://www.cursor.so/",stage:"搭建站点",tags:["AI辅助写代码","编辑器"],description:"AI 帮你写页面、改样式，小白也能做出完整网页",tutorial:"https://docs.cursor.so/"},
+            {id:35,name:"VS Code",url:"https://code.visualstudio.com/",stage:"搭建站点",tags:["本地开发","编辑代码"],description:"轻量级代码编辑器，适合本地写前端或调试网页结构",tutorial:"https://code.visualstudio.com/docs"},
+            {id:36,name:"Figma",url:"https://www.figma.com/",stage:"搭建站点",tags:["网页设计","UI草图"],description:"零代码设计网页结构，可导出为 HTML 模板或供开发参考",tutorial:"https://help.figma.com/"},
+            {id:37,name:"Astro",url:"https://astro.build/",stage:"搭建站点",tags:["轻量建站框架","内容站首选"],description:"适合构建内容导向的导航页、博客站点，轻量又快",tutorial:"https://docs.astro.build/"},
+            {id:38,name:"ChatGPT（Code）",url:"https://chat.openai.com/",stage:"搭建站点",tags:["辅助写网页代码","修Bug"],description:"直接问：帮我写一个3栏导航页HTML，马上可用",tutorial:"https://help.openai.com/"},
+            {id:39,name:"CodePen",url:"https://carbon.now.sh/",stage:"搭建站点",tags:["代码美化","可视化片段"],description:"将你的代码生成图片或直接测试，适合小白理解结构",tutorial:"https://carbon.now.sh/docs"},
+            {id:40,name:"DeepSeek",url:"https://deepseek.com/",stage:"搭建站点",tags:["AI编程助手","技术问答"],description:"支持复杂网页开发相关问题的 AI 推理与生成",tutorial:"https://github.com/deepseek-ai"},
+            {id:41,name:"Bolt.new",url:"https://bolt.new/",stage:"搭建站点",tags:["可视化网页搭建","AI生成器"],description:"输入一句话即可生成网页原型，小白搭建导航页极为友好",tutorial:"https://www.bolt.new/docs"},
+            {id:42,name:"Trick.so",url:"https://www.trick.so/",stage:"搭建站点",tags:["导航页生成","无代码建站"],description:"无需编程自动生成漂亮导航页，非常适合零基础使用",tutorial:"https://www.trick.so/docs"},
+            {id:43,name:"GitHub Copilot",url:"https://github.com/features/copilot",stage:"搭建站点",tags:["AI编程助手","智能补全"],description:"在 VS Code 中自动补全网页代码，辅助理解语法结构",tutorial:"https://docs.github.com/copilot"},
+            {id:44,name:"Git",url:"https://git-scm.com/",stage:"搭建站点",tags:["版本管理","代码控制"],description:"基础开发工具，用于同步部署到 GitHub 等平台",tutorial:"https://git-scm.com/doc"},
+            {id:45,name:"Node.js",url:"https://nodejs.org/",stage:"搭建站点",tags:["开发环境","包管理支持"],description:"支持本地构建项目、安装依赖，Vercel/Netlify部署常用依赖",tutorial:"https://nodejs.org/en/docs"},
+            {id:46,name:"npm",url:"https://www.npmjs.com/",stage:"搭建站点",tags:["依赖安装","项目构建"],description:"配合 Node 使用，用于安装如 Astro 等前端框架",tutorial:"https://docs.npmjs.com/"},
+            {id:47,name:"Heyboss",url:"https://heyboss.ai/",stage:"搭建站点",tags:["AI建站引导","内容助手"],description:"通过聊天形式问你想做什么，然后一步步生成完整网页",tutorial:"https://heyboss.ai/docs"},
+            
+            // 推广运营工具 (14个)
+            {id:48,name:"Google Search Console",url:"https://search.google.com/search-console/",stage:"推广运营",tags:["SEO收录监控","关键词点击分析"],description:"提交sitemap、查看关键词点击数据，判断哪些内容带来流量",tutorial:"https://support.google.com/webmasters/"},
+            {id:49,name:"Google Analytics",url:"https://analytics.google.com/",stage:"推广运营",tags:["用户数据分析","来源追踪"],description:"统计网站访问量、访问来源、用户地区、页面点击热度等",tutorial:"https://support.google.com/analytics/"},
+            {id:50,name:"5118",url:"https://www.5118.com/",stage:"推广运营",tags:["SEO优化","关键词挖掘"],description:"查看竞争关键词、站点关键词覆盖情况，挖掘内容优化方向",tutorial:"https://help.5118.com/"},
+            {id:51,name:"灰豚数据",url:"https://www.huitun.com/",stage:"推广运营",tags:["站点分析","内容质量监控"],description:"分析内容质量评分、流量预估、关键词优化建议等",tutorial:"https://www.huitun.com/help"},
+            {id:52,name:"Semrush",url:"https://www.semrush.com/siteaudit/",stage:"推广运营",tags:["技术SEO","网站体检"],description:"自动检测网站SEO错误、加载速度、安全问题等",tutorial:"https://www.semrush.com/kb/20/site-audit"},
+            {id:53,name:"百度统计",url:"https://tongji.baidu.com/",stage:"推广运营",tags:["中文站点分析","用户行为"],description:"适合中文内容站或引流小红书用户，查看用户来源、停留时间等",tutorial:"https://tongji.baidu.com/help"},
+            {id:54,name:"Ubersuggest",url:"https://neilpatel.com/ubersuggest/",stage:"推广运营",tags:["SEO建议","长尾词挖掘"],description:"提供关键词建议、内容优化建议和竞争分析",tutorial:"https://neilpatel.com/blog/ubersuggest/"},
+            {id:55,name:"Reddit",url:"https://www.reddit.com/",stage:"推广运营",tags:["内容分发","精准引流"],description:"在相关社区分享工具网站、文章链接，获取精准流量",tutorial:"https://reddit.zendesk.com/"},
+            {id:56,name:"小红书",url:"https://www.xiaohongshu.com/",stage:"推广运营",tags:["短内容发布","用户截流"],description:"通过封面图、工具推荐笔记吸引流量跳转站点",tutorial:"https://www.xiaohongshu.com/growth/"},
+            {id:57,name:"Quora",url:"https://www.quora.com/",stage:"推广运营",tags:["内容问答","引导跳转"],description:"通过回答问题推荐站点，获取英文用户流量",tutorial:"https://help.quora.com/"},
+            {id:58,name:"抖音创作者中心",url:"https://creator.douyin.com/",stage:"推广运营",tags:["短视频发布","工具推荐"],description:"通过制作简单的视频介绍导航站内容，在抖音获取精准流量",tutorial:"https://school.oceanengine.com/"},
+            {id:59,name:"哔哩哔哩",url:"https://www.bilibili.com/",stage:"推广运营",tags:["视频内容分享","教程发布"],description:"录制搭站流程视频或推荐清单，建立信任感并带动站点访问",tutorial:"https://member.bilibili.com/studio/"},
+            {id:60,name:"即刻",url:"https://web.okjike.com/",stage:"推广运营",tags:["社交兴趣圈","工具推荐"],description:"在兴趣圈发布内容/截图/清单，引导早期用户收藏并分享",tutorial:"https://www.okjike.com/about"},
+            {id:61,name:"TikTok",url:"https://www.tiktok.com/creators/creator-portal/",stage:"推广运营",tags:["短视频海外引流","内容分享"],description:"制作英文短视频介绍导航站功能，用英文标签精准引流",tutorial:"https://support.tiktok.com/"},
+            {id:62,name:"YouTube Studio",url:"https://studio.youtube.com/",stage:"推广运营",tags:["视频内容营销","教程引流"],description:"发布建站教学视频或工具推荐清单，适合长期积累流量",tutorial:"https://support.google.com/youtube"},
+            {id:63,name:"知乎",url:"https://www.zhihu.com/",stage:"推广运营",tags:["问答引流","内容推荐"],description:"在“出海建站”相关问题下发布详细答案并插入导航站链接",tutorial:"https://www.zhihu.com/question/30317452"}
+        ];
+
+        // 工具卡片模板
+        function createToolCard(tool) {
+            return `
+                <div class="tool-card tool-item" data-name="${tool.name.toLowerCase()}" data-tags="${tool.tags.join(',')}" data-desc="${tool.description.toLowerCase()}">
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold text-light">${tool.name}</h3>
+                            <span class="flex items-center text-yellow-400">
+                                <i class="fas fa-star text-sm mr-1"></i>
+                                ${(Math.random() * 0.5 + 4.5).toFixed(1)}
+                            </span>
+                        </div>
+                        
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            ${tool.tags.map(tag => 
+                                `<span class="tag-badge px-2 py-1 text-xs rounded">${tag}</span>`
+                            ).join('')}
+                        </div>
+                        
+                        <p class="text-light text-opacity-80 mb-5">
+                            ${tool.description}
+                        </p>
+                        
+                        <div class="flex justify-between items-center">
+                            <a href="${tool.url}" target="_blank" class="tool-link text-secondary font-medium">
+                                <i class="fas fa-external-link-alt mr-2"></i>访问网站
+                            </a>
+                            <a href="${tool.tutorial}" target="_blank" class="text-light text-opacity-70 hover:text-secondary">
+                                <i class="fas fa-graduation-cap mr-1"></i>教程
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            // 按阶段分组工具
+            const clarifyTools = toolsData.filter(tool => tool.stage === '澄清需求');
+            const registerTools = toolsData.filter(tool => tool.stage === '注册账号');
+            const buildTools = toolsData.filter(tool => tool.stage === '搭建站点');
+            const promoteTools = toolsData.filter(tool => tool.stage === '推广运营');
+            
+            // 渲染工具卡片
+            document.getElementById('clarify-tools-container').innerHTML = clarifyTools.map(createToolCard).join('');
+            document.getElementById('register-tools-container').innerHTML = registerTools.map(createToolCard).join('');
+            document.getElementById('build-tools-container').innerHTML = buildTools.map(createToolCard).join('');
+            document.getElementById('promote-tools-container').innerHTML = promoteTools.map(createToolCard).join('');
+            
+            // 搜索功能实现
+            const searchInput = document.getElementById('search-tools');
+            const allToolItems = document.querySelectorAll('.tool-item');
+            
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase().trim();
+                let hasResults = false;
+                
+                allToolItems.forEach(item => {
+                    const name = item.dataset.name;
+                    const tags = item.dataset.tags.toLowerCase();
+                    const desc = item.dataset.desc;
+                    
+                    if (name.includes(searchTerm) || tags.includes(searchTerm) || desc.includes(searchTerm)) {
+                        item.style.display = 'block';
+                        hasResults = true;
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+                
+                // 显示/隐藏无结果提示
+                const noResultsDiv = document.getElementById('no-results');
+                if (searchTerm && !hasResults) {
+                    noResultsDiv.classList.remove('hidden');
+                } else {
+                    noResultsDiv.classList.add('hidden');
+                }
+            });
+            
+            // 滚动到指定区域
+            window.scrollToSection = function(sectionId) {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    section.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+            
+            // 语言切换功能
+            const langEnBtn = document.getElementById('lang-en');
+            const langZhBtn = document.getElementById('lang-zh');
+            
+            langEnBtn.addEventListener('click', function() {
+                langEnBtn.classList.add('active');
+                langZhBtn.classList.remove('active');
+                // 这里可以添加英文内容切换逻辑
+                console.log("切换到英文界面");
+            });
+            
+            langZhBtn.addEventListener('click', function() {
+                langZhBtn.classList.add('active');
+                langEnBtn.classList.remove('active');
+                // 这里可以添加中文内容切换逻辑
+                console.log("切换到中文界面");
+            });
+            
+            // 表单提交处理
+            const form = document.getElementById('tool-recommendation-form');
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // 获取表单数据
+                const toolName = this.querySelector('input[type="text"]').value;
+                const toolUrl = this.querySelector('input[type="url"]').value;
+                const toolStage = this.querySelector('select').value;
+                const toolReason = this.querySelector('textarea').value;
+                
+                // 在控制台输出用户提交信息
+                console.log("新工具推荐提交：");
+                console.log("工具名称: ", toolName);
+                console.log("工具网址: ", toolUrl);
+                console.log("适用阶段: ", toolStage);
+                console.log("推荐理由: ", toolReason);
+                
+                // 保存到本地存储
+                saveSubmission({
+                    name: toolName,
+                    url: toolUrl,
+                    stage: toolStage,
+                    reason: toolReason,
+                    timestamp: new Date().toISOString(),
+                    date: new Date().toLocaleString('zh-CN')
+                });
+                
+                // 显示成功消息
+                document.querySelector('[x-data]').__x.$data.showSuccess = true;
+                form.reset();
+                
+                // 刷新提交列表
+                loadSubmissions();
+            });
+            
+            // 管理员面板功能
+            const adminPanel = document.getElementById('admin-panel');
+            const adminToggle = document.getElementById('admin-toggle');
+            const submissionsList = document.getElementById('submissions-list');
+            const clearBtn = document.getElementById('clear-submissions');
+            const exportBtn = document.getElementById('export-btn');
+            
+            // 切换管理员面板
+            adminToggle.addEventListener('click', function() {
+                adminPanel.classList.toggle('visible');
+            });
+            
+            // 清空提交记录
+            clearBtn.addEventListener('click', function() {
+                if (confirm('确定要清空所有提交记录吗？')) {
+                    localStorage.removeItem('toolSubmissions');
+                    loadSubmissions();
+                }
+            });
+            
+            // 导出为JSON文件
+            exportBtn.addEventListener('click', function() {
+                const submissions = JSON.parse(localStorage.getItem('toolSubmissions') || '[]');
+                if (submissions.length === 0) {
+                    alert('没有可导出的提交记录');
+                    return;
+                }
+                
+                const dataStr = JSON.stringify(submissions, null, 2);
+                const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+                
+                const exportFileDefaultName = '工具推荐提交记录.json';
+                
+                const linkElement = document.createElement('a');
+                linkElement.setAttribute('href', dataUri);
+                linkElement.setAttribute('download', exportFileDefaultName);
+                linkElement.click();
+            });
+            
+            // 加载提交记录
+            function loadSubmissions() {
+                const submissions = JSON.parse(localStorage.getItem('toolSubmissions') || '[]');
+                submissionsList.innerHTML = '';
+                
+                if (submissions.length === 0) {
+                    submissionsList.innerHTML = `
+                        <div class="empty-submissions">
+                            <i class="fas fa-inbox fa-2x mb-3"></i>
+                            <p>暂无提交记录</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                submissions.forEach(sub => {
+                    const item = document.createElement('div');
+                    item.className = 'submission-item';
+                    item.innerHTML = `
+                        <h4>${sub.name}</h4>
+                        <div><strong>网址:</strong> <a href="${sub.url}" target="_blank" class="text-secondary">${sub.url}</a></div>
+                        <div><strong>阶段:</strong> ${sub.stage}</div>
+                        <div><strong>推荐理由:</strong> ${sub.reason}</div>
+                        <div class="submission-meta">提交时间: ${sub.date}</div>
+                    `;
+                    submissionsList.appendChild(item);
+                });
+            }
+            
+            // 保存提交记录到本地存储
+            function saveSubmission(submission) {
+                // 获取现有提交记录
+                const submissions = JSON.parse(localStorage.getItem('toolSubmissions') || '[]');
+                
+                // 添加新提交
+                submissions.unshift(submission);
+                
+                // 保存回本地存储（最多保留50条）
+                if (submissions.length > 50) submissions.length = 50;
+                localStorage.setItem('toolSubmissions', JSON.stringify(submissions));
+            }
+            
+            // 初始加载提交记录
+            loadSubmissions();
+        });
+    </script>
+</body>
+</html>
